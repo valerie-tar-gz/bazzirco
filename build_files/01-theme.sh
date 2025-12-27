@@ -23,6 +23,14 @@ dnf -y copr enable avengemedia/danklinux
 dnf -y copr disable avengemedia/danklinux
 dnf -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux install quickshell-git
 
+dnf -y copr enable shadowblip/InputPlumber
+dnf -y copr disable shadowblip/InputPlumber
+# FIXME: remove once https://github.com/ShadowBlip/InputPlumber/pull/481 is merged and published to COPR
+dnf -y --enablerepo copr:copr.fedorainfracloud.org:shadowblip:InputPlumber \
+    install --setopt=install_weak_deps=False \
+    inputplumber || true
+inputplumber --version | grep -E -e "inputplumber [[:digit:]]*\.[[:digit:]]*\.[[:digit:]]*"
+
 dnf -y copr enable avengemedia/dms-git
 dnf -y copr disable avengemedia/dms-git
 dnf -y \
