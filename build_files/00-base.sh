@@ -3,7 +3,7 @@
 set -xeuo pipefail
 
 #De-bazzite-ify
-dnf5 versionlock remove \
+dnf5 versionlock delete \
         pipewire \
         pipewire-alsa \
         pipewire-gstreamer \
