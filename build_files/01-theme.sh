@@ -100,7 +100,9 @@ dnf install -y --setopt=install_weak_deps=False \
 sed --sandbox -i -e '/gnome_keyring.so/ s/-auth/auth/ ; /gnome_keyring.so/ s/-session/session/' /etc/pam.d/greetd
 
 # Codecs for video thumbnails on nautilus
-dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
+
+#Negativo is already added by Bazzite
+#dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
 dnf config-manager setopt fedora-multimedia.enabled=0
 dnf -y install --enablerepo=fedora-multimedia \
     -x PackageKit* \
