@@ -33,7 +33,7 @@ jobs:
       fail-fast: false
       matrix:
         #flavor: ["", "nvidia"]
-        #platform: ["amd64", "arm64"]
+        platform: ["amd64"]
         base: ["-gnome", "-deck-gnome", "-gnome-nvidia-open", "-deck-nvidia-gnome"]
         pretty: ["", "deck", "nvidia", "deck-nvidia"]
     runs-on: 'ubuntu-24.04'
