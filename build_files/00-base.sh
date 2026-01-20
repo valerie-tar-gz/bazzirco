@@ -2,6 +2,8 @@
 
 set -xeuo pipefail
 
+dnf -y remove *gnome* *gdm*
+
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
 

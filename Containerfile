@@ -12,21 +12,21 @@ COPY --from=ghcr.io/ublue-os/brew:latest /system_files /files
 
 FROM "$BASE_IMAGE"
 
-#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-#    --mount=type=tmpfs,dst=/var \
-#    --mount=type=tmpfs,dst=/tmp \
-#    /ctx/build/00-base.sh
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=tmpfs,dst=/var \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/build/00-base.sh
 
-#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-#    --mount=type=tmpfs,dst=/var \
-#    --mount=type=tmpfs,dst=/tmp \
-#    /ctx/build/01-theme.sh
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=tmpfs,dst=/var \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/build/01-theme.sh
 
-#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-#    /ctx/build/02-nvidia.sh
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    /ctx/build/02-nvidia.sh
 
-#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-#    /ctx/build/99-cleanup.sh
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    /ctx/build/99-cleanup.sh
 
 RUN rm -rf /var/* && mkdir /var/tmp && bootc container lint
 
