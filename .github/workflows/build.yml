@@ -79,7 +79,7 @@ jobs:
       - name: Build image
         id: build
         env:
-          BASE_IMAGE: $BASE_IMAGE
+          BASE_IMAGE: ${{ env.BASE_IMAGE}}
         run: sudo podman build "--build-arg=BASE_IMAGE=${BASE_IMAGE}" -t "${IMAGE_NAME}:${DEFAULT_TAG}" -f ./Containerfile .
 
       - name: Rechunk Image
