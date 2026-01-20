@@ -50,12 +50,21 @@ jobs:
         with:
           submodules: true
 
-      - name: Change image name depending on build flavor
+      - name: Change image name depending on pretty name
         env:
           BUILD_FLAVOR: ${{ matrix.base }}#CHANGE BACK TO PRETTY
         run: |
-          if [ "${BUILD_FLAVOR}" != "" ] ; then
-            echo "IMAGE_NAME=${IMAGE_NAME}-${{ matrix.base }}" >> $GITHUB_ENV#CHANGE BACK TO PRETTY
+          if [ "${BUILD_FLAVOR}" == "gnome" ] ; then
+            echo "IMAGE_NAME=${IMAGE_NAME}" >> $GITHUB_ENV
+          fi
+          if [ "${BUILD_FLAVOR}" == "deck-gnome" ] ; then
+            echo "IMAGE_NAME=${IMAGE_NAME}-deck" >> $GITHUB_ENV
+          fi
+          if [ "${BUILD_FLAVOR}" == "gnome-nvidia-open" ] ; then
+            echo "IMAGE_NAME=${IMAGE_NAME}-nvidia" >> $GITHUB_ENV
+          fi
+          if [ "${BUILD_FLAVOR}" == "deck-nvidia-open" ] ; then
+            echo "IMAGE_NAME=${IMAGE_NAME}-nvidia" >> $GITHUB_ENV
           fi
 
       - name: Build image
