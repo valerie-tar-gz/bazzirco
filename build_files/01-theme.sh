@@ -10,7 +10,7 @@ dnf -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install \
     matugen \
     iio-niri 
 
-dnf -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages --skip-broken install \
+dnf -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install --skip-broken \
 	valent-git
 
 dnf -y copr enable yalter/niri-git
