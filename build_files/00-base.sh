@@ -5,12 +5,6 @@ set -xeuo pipefail
 #De-bazzite-ify
 dnf -y remove *gnome* *gdm*
 
-dnf -y remove pipewire-libs-extra pipewire-libs pipewire pipewire-jack-audio-connection-kit-libs pipewire-jack-audio-connection-kit pipewire-utils pipewire-pulseaudio pipewire-plugin-libcamera pipewire-gstreamer pipewire-alsa pipewire-module-filter-chain-sofa pipewire-libs pipewire-alsa 
-
-dnf -y --enable-repo=fedora,updates,updates-archive install pipewire-libs-extra pipewire-libs pipewire pipewire-jack-audio-connection-kit-libs pipewire-jack-audio-connection-kit pipewire-utils pipewire-pulseaudio pipewire-plugin-libcamera pipewire-gstreamer pipewire-alsa pipewire-module-filter-chain-sofa pipewire-libs pipewire-alsa 
-
-
-
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
 
