@@ -3,6 +3,8 @@
 set -xeuo pipefail
 
 #De-bazzite-ify
+alias dnf="/usr/bin/dnf5"
+
 dnf -y remove *gnome* *gdm*
 
 systemctl enable systemd-timesyncd

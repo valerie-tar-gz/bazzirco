@@ -8,8 +8,8 @@ dnf -y copr enable zirconium/packages
 dnf -y copr disable zirconium/packages
 dnf -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install \
     matugen \
-    iio-niri 
-    #valent-git
+    iio-niri \
+    valent-git
 
 dnf -y copr enable yalter/niri-git
 dnf -y copr disable yalter/niri-git
