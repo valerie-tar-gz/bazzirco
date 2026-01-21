@@ -189,12 +189,12 @@ echo 'source /usr/share/zirconium/shell/pure.bash' | tee -a "/etc/bashrc"
 
 #Only do DMS-greeter config on non-deck images
 if [ "$DECK_IMAGE" == False ] ; then
-  tee /usr/lib/tmpfiles.d/99-greeter-config.conf <<'EOF'
-  L /var/cache/dms-greeter/settings.json - greeter greeter - /usr/share/zirconium/zdots/dot_config/DankMaterialShell/settings.json
-  L /var/cache/dms-greeter/session.json - greeter greeter - /usr/share/zirconium/zdots/private_dot_local/state/DankMaterialShell/session.json
-  L /var/cache/dms-greeter/dms-colors.json - greeter greeter - /usr/share/zirconium/zdots/dot_cache/DankMaterialShell/dms-colors.json
-  L /var/cache/dms-greeter/colors.json - greeter greeter - /usr/share/zirconium/zdots/dot_cache/DankMaterialShell/dms-colors.json
-  EOF
+tee /usr/lib/tmpfiles.d/99-greeter-config.conf <<'EOF'
+L /var/cache/dms-greeter/settings.json - greeter greeter - /usr/share/zirconium/zdots/dot_config/DankMaterialShell/settings.json
+L /var/cache/dms-greeter/session.json - greeter greeter - /usr/share/zirconium/zdots/private_dot_local/state/DankMaterialShell/session.json
+L /var/cache/dms-greeter/dms-colors.json - greeter greeter - /usr/share/zirconium/zdots/dot_cache/DankMaterialShell/dms-colors.json
+L /var/cache/dms-greeter/colors.json - greeter greeter - /usr/share/zirconium/zdots/dot_cache/DankMaterialShell/dms-colors.json
+EOF
 fi
 
 install -d /usr/share/bash-completion/completions /usr/share/zsh/site-functions /usr/share/fish/vendor_completions.d/

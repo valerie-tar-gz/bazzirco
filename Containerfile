@@ -24,8 +24,8 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build/01-theme.sh
 
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    /ctx/build/02-nvidia.sh
+#RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+#    /ctx/build/02-nvidia.sh
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build/99-cleanup.sh
