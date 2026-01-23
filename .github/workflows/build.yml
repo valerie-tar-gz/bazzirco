@@ -60,7 +60,6 @@ jobs:
         id: pick_image
         env:
             BUILD_EDITION: ${{ matrix.edition }}
-            DECK_EDITION: False
         run: |
           if [ "${BUILD_EDITION}" == "" ] ; then
             echo "BASE_IMAGE=ghcr.io/ublue-os/bazzite-gnome:latest" >> $GITHUB_ENV
@@ -84,6 +83,7 @@ jobs:
         id: build
         env:
           BASE_IMAGE: ${{ env.BASE_IMAGE}}
+          DECK_IMAGE: ${{ env.DECK_IMAGE}}
         run: sudo podman build "--build-arg=BASE_IMAGE=${BASE_IMAGE}" -t "${IMAGE_NAME}:${DEFAULT_TAG}" -f ./Containerfile .
 
 #      #TODO: Fix rechunking because I'm a chud!
