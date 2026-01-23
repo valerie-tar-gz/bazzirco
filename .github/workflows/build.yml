@@ -60,6 +60,7 @@ jobs:
         id: pick_image
         env:
             BUILD_EDITION: ${{ matrix.edition }}
+        shell: bash
         run: |
           if [ "${BUILD_EDITION}" == "" ] ; then
             export BASE_IMAGE="ghcr.io/ublue-os/bazzite-gnome:latest"
