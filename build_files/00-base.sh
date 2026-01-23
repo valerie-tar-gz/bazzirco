@@ -2,10 +2,6 @@
 
 set -xeuo pipefail
 
-echo "$DECK_IMAGE $BASE_IMAGE"
-
-diefaggotdie
-
 #De-bazzite-ify
 dnf5 versionlock delete \
         pipewire \

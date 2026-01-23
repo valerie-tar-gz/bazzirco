@@ -63,19 +63,19 @@ jobs:
         run: |
           if [ "${BUILD_EDITION}" == "" ] ; then
             echo "BASE_IMAGE=ghcr.io/ublue-os/bazzite-gnome:latest" >> $GITHUB_ENV
-            echo "DECK_IMAGE=Desktop" >> $GITHUB_ENV
+            echo "DECK_IMAGE=False" >> $GITHUB_ENV
           fi
           if [ "${BUILD_EDITION}" == "deck" ] ; then
             echo "BASE_IMAGE=ghcr.io/ublue-os/bazzite-deck-gnome:latest" >> $GITHUB_ENV
-            echo "DECK_IMAGE=Deck" >> $GITHUB_ENV
+            echo "DECK_IMAGE=True" >> $GITHUB_ENV
           fi
           if [ "${BUILD_EDITION}" == "nvidia" ] ; then
-            echo "DECK_IMAGE=Desktop" >> $GITHUB_ENV
+            echo "DECK_IMAGE=False" >> $GITHUB_ENV
             echo "BASE_IMAGE=ghcr.io/ublue-os/bazzite-gnome-nvidia-open:latest" >> $GITHUB_ENV
           fi
           if [ "${BUILD_EDITION}" == "deck-nvidia" ] ; then
             echo "BASE_IMAGE=ghcr.io/ublue-os/bazzite-deck-nvidia-gnome:latest" >> $GITHUB_ENV
-            echo "DECK_IMAGE=Deck" >> $GITHUB_ENV
+            echo "DECK_IMAGE=True" >> $GITHUB_ENV
           fi
           
 

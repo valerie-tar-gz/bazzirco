@@ -10,8 +10,7 @@ COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared/usr/bin/lu
 COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared/usr/share/ublue-os/just /files/usr/share/ublue-os/just
 COPY --from=ghcr.io/ublue-os/brew:latest /system_files /files
 
-FROM quay.io/fedora/fedora-bootc:43
-#FROM "$BASE_IMAGE"
+FROM "$BASE_IMAGE"
 
 ARG DECK_IMAGE="$DECK_IMAGE"
 ARG BASE_IMAGE="$BASE_IMAGE"
