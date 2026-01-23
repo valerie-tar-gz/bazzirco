@@ -2,6 +2,10 @@
 
 set -xeuo pipefail
 
+echo "$DECK_IMAGE"
+
+diefaggotdie
+
 #De-bazzite-ify
 dnf5 versionlock delete \
         pipewire \
