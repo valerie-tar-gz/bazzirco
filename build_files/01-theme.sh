@@ -49,19 +49,23 @@ dnf -y \
     dsearch
 install -Dpm0644 -t /usr/lib/pam.d/ /usr/share/quickshell/dms/assets/pam/* # Fixes long loging times on fingerprint auth
 
-#Only installs greeter for non-deck images
-if [ "$DECK_IMAGE" == False ] ; then
-  dnf -y \
-      --enablerepo copr:copr.fedorainfracloud.org:avengemedia:dms-git \
-      --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux \
-      install --setopt=install_weak_deps=False \
-      dms-greeter 
-  dnf -y install \
-  	  greetd \
-  	  greetd-selinux
-fi
+
+dnf -y \
+    --enablerepo copr:copr.fedorainfracloud.org:avengemedia:dms-git \
+    --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux \
+    install --setopt=install_weak_deps=False \
+    dms-greeter
+
+# adding gamescope session without using a bazzite deck image which has no login and is STUPID
+# TODO: uhhh make sure it actually works? Prob will have to look at deck images and see if they do anything specific.
+dnf5 -y copr enable pvermeer/gamescope-session-guide
+dnf5 -y copr disable pvermeer/gamescope-session-guide
+dnf5 -y --enablerepo copr:copr.fedorainfracloud.org:pvermeer:gamescope-session-guide install gamescope-session-guide
+
 
 dnf -y install \
+    greetd \
+    greetd-selinux \
     brightnessctl \
     cava \
     chezmoi \
@@ -95,7 +99,8 @@ dnf -y install \
     xdg-desktop-portal-gtk \
     xdg-terminal-exec \
     xdg-user-dirs \
-    xwayland-satellite
+    xwayland-satellite \
+	
 
 # we already have a service for handling fcitx5
 rm -f /usr/share/applications/fcitx5-wayland-launcher.desktop
