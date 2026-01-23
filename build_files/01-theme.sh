@@ -141,6 +141,10 @@ dnf install -y \
     glibc-all-langpacks \
     default-fonts
 
+#Remove STUPID fucking RAOP
+dnf remove -y \
+	pipewire-config-raop
+
 cp -avf "/ctx/files"/. /
 
 systemctl enable --global chezmoi-init.service
