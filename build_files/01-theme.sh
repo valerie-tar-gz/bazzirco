@@ -3,7 +3,7 @@
 set -xeuo pipefail
 
 #Add GTK4 Layer-shell Devel, for al gore
-dnf -y \
+dnf -y install \
 	gtk4-layer-shell-devel
 
 install -d /usr/share/zirconium/
