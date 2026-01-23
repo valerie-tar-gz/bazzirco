@@ -62,18 +62,21 @@ jobs:
             BUILD_EDITION: ${{ matrix.edition }}
         run: |
           if [ "${BUILD_EDITION}" == "" ] ; then
-            echo "BASE_IMAGE=ghcr.io/ublue-os/bazzite-gnome:latest" >> $GITHUB_ENV
+            export BASE_IMAGE="ghcr.io/ublue-os/bazzite-gnome:latest"
           fi
           if [ "${BUILD_EDITION}" == "deck" ] ; then
-            echo "BASE_IMAGE=ghcr.io/ublue-os/bazzite-deck-gnome:latest" >> $GITHUB_ENV
+            export BASE_IMAGE="ghcr.io/ublue-os/bazzite-deck-gnome:latest"
           fi
           if [ "${BUILD_EDITION}" == "nvidia" ] ; then
-            echo "BASE_IMAGE=ghcr.io/ublue-os/bazzite-gnome-nvidia-open:latest" >> $GITHUB_ENV
+            export BASE_IMAGE="ghcr.io/ublue-os/bazzite-gnome-nvidia-open:latest"
           fi
           if [ "${BUILD_EDITION}" == "deck-nvidia" ] ; then
-            echo "BASE_IMAGE=ghcr.io/ublue-os/bazzite-deck-nvidia-gnome:latest" >> $GITHUB_ENV
+            export BASE_IMAGE="ghcr.io/ublue-os/bazzite-deck-nvidia-gnome:latest"
           fi
-          if [[ $BASE_IMAGE =~ "deck" ]]; then
+          
+          echo "BASE_IMAGE=$BASE_IMAGE" >> "$GITHUB_ENV"
+          
+          if [[ $BASE_IMAGE == *deck* ]]; then
           	echo "DECK_IMAGE=True" >> $GITHUB_ENV
           else
             echo "DECK_IMAGE=False" >> $GITHUB_ENV
