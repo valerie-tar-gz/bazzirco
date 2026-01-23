@@ -2,7 +2,7 @@
 
 set -xeuo pipefail
 
-echo "$DECK_IMAGE"
+echo "$DECK_IMAGE $BASE_IMAGE"
 
 diefaggotdie
 
