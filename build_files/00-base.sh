@@ -16,7 +16,13 @@ dnf5 versionlock delete \
         wireplumber \
         wireplumber-libs
 
-dnf -y remove *gnome* *gdm*
+dnf -y remove \
+		gdm \
+		gnome-shell \
+		gnome-session \
+		gnome-control-center \
+		gnome-settings-daemon \
+		gnome-software
 
 if [ "$DECK_IMAGE" == True ] ; then
   sed -i 's|/usr/bin/gnome-session|/usr/bin/niri-session|g' /usr/bin/gnome-session-oneshot
