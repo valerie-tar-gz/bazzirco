@@ -32,7 +32,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        edition: ["", "nvidia"]
+        edition: ["", "deck", "nvidia", "deck-nvidia", "dx", "dx-nvidia"]
+        #edition: ["", "nvidia"]
     runs-on: 'ubuntu-24.04'
     steps:
       - name: Mount BTRFS for podman storage
